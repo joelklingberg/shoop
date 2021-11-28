@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="image" [style.background-image]="'url(' + coupon.logoURL + ')'"></div>
+    
+    <h1>{{coupon.programName}}</h1>
+    
+    <h2>{{coupon.offerDescription}}</h2>
+    
+    <small style="display: flex; justify-content: center; padding-bottom: 10px">RABATTKOD</small>
+    <div class="coupon-code">
+        <h4>{{coupon.offerCoupon}}</h4>
+    </div>
+    
+    <div class="call-to-action" (click)="onCallToAction()">
+        <button class="btn-grad">Besök erbjudande</button>
+    </div>
+
+    <div class="timer">
+        <div>Rabattkod utgår om</div>
+        <h4>{{days}} dagar {{minutes}} minuter {{seconds}} sekunder</h4>
+    </div>
+    
+</div>
+
