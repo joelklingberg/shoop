@@ -10,6 +10,9 @@ MIT
 @angular/router
 MIT
 
+angular-gtag
+MIT
+
 normalize.css
 MIT
 # The MIT License (MIT)

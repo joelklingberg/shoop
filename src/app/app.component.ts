@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { coupons } from 'src/data/coupons';
-import { Coupon } from './coupon/coupon';
+import { Gtag } from 'angular-gtag';
+import { stores } from 'src/data/stores';
+import { Store } from './store/store';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +9,10 @@ import { Coupon } from './coupon/coupon';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
-  coupons: Coupon[] = this.sortCouponsByDate();
 
-  sortCouponsByDate(): Coupon[] {
-    coupons.sort(function(a,b){
-      return new Date(a.validTo).getTime() - new Date(b.validTo).getTime();
-    });
-    return coupons;
+  constructor(gtag: Gtag) {
   }
+  
+  stores: Store[] = stores;
 
 }

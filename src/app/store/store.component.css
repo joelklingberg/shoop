@@ -31,24 +31,10 @@ h1, h2 {
     text-align: center;
 }
 
-.timer h4 {
-    margin: 0;
-    margin-top: 10px;
-}
-
-.timer {
-    text-align: center;
-}
-
-.coupon-code {
-    text-align: center;
-    border: 1px dashed #CCCCCC;
-}
-
 .call-to-action {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 5px;
 }
 
 button {
@@ -75,3 +61,6 @@ button {
    text-decoration: none;
  }
 
+p {
+    text-align: center;
+}
