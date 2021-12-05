@@ -1,0 +1,35 @@
+<div class="container">
+
+    <h1>{{store?.programName}}</h1>
+    
+    <div 
+        class="image" 
+        [style.background-image]="'url(' + store?.logoURL + ')'"
+        (click)="onCallToAction()"
+        ></div>
+    
+
+    
+    <p>{{store?.description}}</p>
+
+    <div class="information">
+        <p class="title">Frakt & Returer</p>
+        <p class="information-text">{{store?.freeShippingAndReturns}}</p>
+    </div>
+
+    <div class="information">
+        <p class="title">Prisnivå</p>
+        <p class="information-text">
+            <img src = "assets/icons/star-fill.svg" alt="star" class="star" *ngFor="let n of filledStars"/>
+            <img src = "assets/icons/star-unfill.svg" alt="star" class="star" *ngFor="let n of unfilledStars"/>
+
+        </p>
+    </div>
+     
+    <div class="call-to-action" (click)="onCallToAction()">
+        <button class="btn-grad">Besök butik</button>
+    </div>
+
+   
+</div>
+

@@ -1,0 +1,20 @@
+.coupon {
+    width: 100%;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timer h4 {
+    margin: 0;
+    margin-top: 10px;
+}
+
+.timer {
+    text-align: center;
+}
+
+.coupon-code {
+    text-align: center;
+    border: 1px dashed #CCCCCC;
+}

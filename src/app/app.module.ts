@@ -4,14 +4,18 @@ import { GtagModule } from 'angular-gtag';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreComponent } from './store/store.component';
+import { StoreComponent } from './stores/store/store.component';
 import { HeaderComponent } from './header/header.component';
+import { CouponComponent } from './coupon/coupon.component';
+import { StoresComponent } from './stores/stores.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StoreComponent,
-    HeaderComponent
+    HeaderComponent,
+    CouponComponent,
+    StoresComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,6 +23,6 @@ import { HeaderComponent } from './header/header.component';
     GtagModule.forRoot({ trackingId: 'UA-YOUR_TRACKING_ID', trackPageviews: true })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

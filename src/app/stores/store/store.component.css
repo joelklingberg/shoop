@@ -7,6 +7,7 @@
     padding: 20px;
     margin-top: 15px;
     box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+    background-color: #FFF;
 }
 
 .container:last-child {
@@ -63,4 +64,31 @@ button {
 
 p {
     text-align: center;
+}
+
+h1 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.information {
+    border-top: 1px solid #EEE;
+}
+
+.information:last-child {
+    border-bottom: 1px solid #EEE;
+}
+
+.title {
+    font-weight: bold;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.information-text {
+    margin-top: 5px;
+}
+
+.star {
+    padding: 1px;
 }
