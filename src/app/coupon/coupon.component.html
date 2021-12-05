@@ -1,5 +1,5 @@
 <div class="coupon">
-    <div class="container" *ngIf="!isExpired">
+    <div class="container">
         <div 
             class="image" 
             [style.background-image]="'url(' + coupon?.logoURL + ')'"
@@ -11,9 +11,12 @@
         <h2>{{coupon?.offerDescription}}</h2>
 
         <small style="display: flex; justify-content: center; padding-bottom: 10px">RABATTKOD</small>
-        <div class="coupon-code">
+        
+        <div class="coupon-code" *ngIf="!isExpired">
             <h4>{{coupon?.offerCoupon}}</h4>
         </div>
+
+        <div class="expired" *ngIf="isExpired">Rabattkoden har utgått. Håll utkik på vår instagram för nya rabattkoder.</div>
 
         <div class="call-to-action" (click)="onCallToAction()">
             <button class="btn-grad">Besök erbjudande</button>
