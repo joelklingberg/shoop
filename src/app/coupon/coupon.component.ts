@@ -18,6 +18,8 @@ export class CouponComponent implements OnInit, OnDestroy {
   minutes: number = 0;
   seconds: number = 0;
   isExpired: boolean = false;
+  isCouponFound: boolean = true;
+  paramUrl: string = "";
 
   private subscription: Subscription = new Subscription();
 
@@ -27,6 +29,7 @@ export class CouponComponent implements OnInit, OnDestroy {
 
     this.route.paramMap.subscribe( paramMap => {
       const store = paramMap.get('store');
+      store && (this.paramUrl = store);
       console.log(store);
 
       if(store) {
@@ -41,7 +44,13 @@ export class CouponComponent implements OnInit, OnDestroy {
   }
 
   findCoupon(parameterUrl: string) {
-    this.coupon = coupons.find(coupon => coupon.parameterUrl === parameterUrl);
+    const coupon = coupons.find(coupon => coupon.parameterUrl === parameterUrl);
+
+    if(coupon) {
+      this.coupon = coupon;
+    } else {
+      this.isCouponFound = false;
+    }
   }
 
   ngOnDestroy() {

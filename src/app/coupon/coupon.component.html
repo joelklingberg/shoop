@@ -1,5 +1,5 @@
 <div class="coupon">
-    <div class="container">
+    <div class="container" *ngIf="isCouponFound">
         <div 
             class="image" 
             [style.background-image]="'url(' + coupon?.logoURL + ')'"
@@ -23,9 +23,17 @@
         </div>
 
         <div class="timer" *ngIf="days > 0 || minutes > 0 || seconds > 0">
-            <div>Rabattkod utgår om</div>
+            <div>Rabattkod går ut om</div>
             <h4>{{days}} dagar {{minutes}} minuter {{seconds}} sekunder</h4>
         </div>
 
+    </div>
+
+    <div class="container" *ngIf="!isCouponFound">
+        <div style="text-align: center;">
+            Rabattkupong med kod '{{paramUrl}}' kunde inte hittas. Har du skrivit korrekt address?
+        </div>
+        
+        <a [routerLink]="['/']">Tillbaka till hem</a>
     </div>
 </div>

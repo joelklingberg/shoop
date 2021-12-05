@@ -22,3 +22,13 @@
 .expired {
     text-align: center;
 }
+
+a {
+    text-decoration: none;
+    color: #0072ff;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
