@@ -4,10 +4,12 @@ import { GtagModule } from 'angular-gtag';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreComponent } from './stores/store/store.component';
+import { StoreComponent } from './store/store.component';
 import { HeaderComponent } from './header/header.component';
 import { CouponComponent } from './coupon/coupon.component';
-import { StoresComponent } from './stores/stores.component';
+import { DragScrollModule } from 'ngx-drag-scroll';
+import { NgxMasonryModule } from 'ngx-masonry';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { StoresComponent } from './stores/stores.component';
     StoreComponent,
     HeaderComponent,
     CouponComponent,
-    StoresComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GtagModule.forRoot({ trackingId: 'UA-YOUR_TRACKING_ID', trackPageviews: true })
+    GtagModule.forRoot({ trackingId: 'UA-YOUR_TRACKING_ID', trackPageviews: true }),
+    DragScrollModule,
+    NgxMasonryModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,23 @@
+<div class="masonry-container">
+  <ngx-masonry class="masonry" [options]="masonryOptions">
+    <div *ngFor="let product of products"
+         ngxMasonryItem class="masonry-item">
+
+      <div class="store-header">
+        <img
+          class="store-logo"
+          src="https://www.adrecord.com/img/logos/1262.gif?1620024981"
+          alt="Store Logo"
+        />
+      </div>
+      <div
+        class="card"
+        [style.background-image]="'url(' + product.image + ')'"
+      >
+      </div>
+      <div class="image-description">
+        <span>{{product.description}}</span><span style="float: right;">{{product.currentPrice}}kr</span>
+      </div>
+    </div>
+  </ngx-masonry>
+</div>
