@@ -1,39 +1,25 @@
 <div class="coupon">
-    <div class="container" *ngIf="isCouponFound">
-        <div 
-            class="image" 
-            [style.background-image]="'url(' + coupon?.logoURL + ')'"
-            (click)="onCallToAction()"
-            ></div>
-
-        <h1>{{coupon?.programName}}</h1>
-
-        <h2>{{coupon?.offerDescription}}</h2>
-
-        <small style="display: flex; justify-content: center; padding-bottom: 10px">RABATTKOD</small>
-        
-        <div class="coupon-code" *ngIf="!isExpired">
-            <h4>{{coupon?.offerCoupon}}</h4>
-        </div>
-
-        <div class="expired" *ngIf="isExpired">Rabattkoden har utgått. Håll utkik på vår instagram för nya rabattkoder.</div>
-
-        <div class="call-to-action" (click)="onCallToAction()">
-            <button class="btn-grad">Besök erbjudande</button>
-        </div>
-
-        <div class="timer" *ngIf="days > 0 || minutes > 0 || seconds > 0">
-            <div>Rabattkod går ut om</div>
-            <h4>{{days}} dagar {{minutes}} minuter {{seconds}} sekunder</h4>
-        </div>
-
+    <div class="image-container">
+        <img src="https://www.adrecord.com/img/logos/954.gif" alt="Store Logo" />
     </div>
-
-    <div class="container" *ngIf="!isCouponFound">
-        <div style="text-align: center;">
-            Rabattkupong med kod '{{paramUrl}}' kunde inte hittas. Har du skrivit korrekt address?
+    <div class="title">
+        10% rabatt
+    </div>
+    <div class="description">
+        10% rabatt på hela sortimentet när du beställer valfria varor för minst 199 kr
+    </div>
+    <div class="coupon-code">
+        <div class="show-code-btn " *ngIf="!isShowingCode" (click)="showCouponCode()">
+            <span></span>
+            <div class="censor">Klicka för att visa kod</div>
         </div>
-        
-        <a [routerLink]="['/']">Tillbaka till hem</a>
+        <div class="show-code-btn" *ngIf="isShowingCode">
+            <div class="code">RABATT2022</div>
+        </div>
+    </div>
+    <div class="copy-code-btn" *ngIf="isShowingCode">Kopiera kod & öppna butik</div>
+    <div class="expires">
+        <div class="expires-title">Utgår om</div>
+        <div class="expires-time">1 dag 3 minuter 24 sekunder</div>
     </div>
 </div>

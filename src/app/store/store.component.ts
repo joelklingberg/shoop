@@ -1,44 +1,37 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Gtag } from 'angular-gtag';
-import { Product } from 'src/data/models/product';
-import { products } from 'src/data/products';
+import { campaigns } from 'src/data/campaigns';
+import { Campaign } from 'src/data/models/Campaign';
+
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.css']
 })
-export class StoreComponent implements OnInit {
+export class StoreComponent  {
 
-  @Input() product: Product | undefined;
-  filledStars: number[] = [];
-  unfilledStars: number[] = [];
-  products = products;
+  campaigns = campaigns;
 
   masonryOptions = {
-    fitWidth: true
+    fitWidth: true,
   }
 
   constructor(private gtag: Gtag) {
   }
 
-  ngOnInit() {
-    console.log(this.product);
-  }
-
-  onCallToAction() {
-    /*
-    if(!this.store) {
+  onCallToAction(campaign: Campaign) {
+    
+    if(!campaign) {
       return;
     }
 
-    this.gtag.event('Store', {
+    this.gtag.event('Campaign', {
       method: 'Call to action',
       event_category: 'Engagement',
-      event_label: ""
+      event_label: campaign.trackingUrl
     });
 
-    window.open(this.store.trackingURL, "_blank");
-    */
+    window.open(campaign.trackingUrl, "_blank");
   }
 
 }

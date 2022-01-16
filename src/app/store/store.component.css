@@ -6,49 +6,51 @@
     max-width: 450px;
 }
 
-h1 {
-  margin: 0;
-  padding: 0;
-  font-size: 18px;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-}
-
 .card {
     display: inline-block;
-    height: 300px;
-    width: 300px;
-    object-fit: cover;
-    background-size: cover;
+    height: 220px;
+    width: 375px;
     background-position: center;
     background-repeat: no-repeat;
     margin-bottom: 10px;
-    border-radius: 10px;
-}
+    background-color: #EEE;
+    background-size:100% 100%;
+    max-width: 95vw;
 
-.masonry-item:hover {
-  margin-top: -5px;
-  margin-left: -2px;
 }
 
 .masonry-item {
-  width: 300px;
-  height: 380px;
-  padding: 5px;
+  width: 375px;
   cursor: pointer;
+  background-color: #FFF;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 5px 10px;
+  max-width: 95vw;
 }
 
 .masonry {
     margin: 0 auto;
 }
 
-.image-description {
+.description {
   font-size: 15px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  padding-top: 5px;
+}
+
+.title {
+  font-size: 18px;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: bolder;
 }
 
-.store-logo {
-  padding-top: 5px;
-  padding-bottom: 10px;
-  height: 30px;
+.footer {
+  padding: 10px;
+  padding-bottom: 15px;
+}
+
+.masonry-container {
+  width: 100%;
+  max-width: 100%;
 }

@@ -6,16 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreComponent } from './store/store.component';
 import { HeaderComponent } from './header/header.component';
-import { CouponComponent } from './coupon/coupon.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FeedComponent } from './feed/feed.component';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+import { CouponComponent } from './coupon/coupon.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StoreComponent,
     HeaderComponent,
+    FeedComponent,
     CouponComponent,
   ],
   imports: [
@@ -25,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DragScrollModule,
     NgxMasonryModule,
     BrowserAnimationsModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
