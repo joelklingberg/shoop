@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { coupons } from 'src/data/coupons';
 
 @Component({
   selector: 'app-feed',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent {
-
+  coupons = coupons;
 }

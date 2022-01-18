@@ -1,3 +1,3 @@
 <section class="feed">
-    <app-coupon></app-coupon>
+    <app-coupon *ngFor="let coupon of coupons" [coupon]="coupon"></app-coupon>
 </section>

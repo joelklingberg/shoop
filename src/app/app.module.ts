@@ -4,7 +4,6 @@ import { GtagModule } from 'angular-gtag';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreComponent } from './store/store.component';
 import { HeaderComponent } from './header/header.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { NgxMasonryModule } from 'ngx-masonry';
@@ -16,7 +15,6 @@ import { CouponComponent } from './coupon/coupon.component';
 @NgModule({
   declarations: [
     AppComponent,
-    StoreComponent,
     HeaderComponent,
     FeedComponent,
     CouponComponent,

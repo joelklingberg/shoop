@@ -1,12 +1,12 @@
 <div class="coupon">
     <div class="image-container">
-        <img src="https://www.adrecord.com/img/logos/954.gif" alt="Store Logo" />
+        <img src="{{coupon?.logo}}" alt="Store Logo" />
     </div>
     <div class="title">
-        10% rabatt
+        {{coupon?.title}}
     </div>
     <div class="description">
-        10% rabatt på hela sortimentet när du beställer valfria varor för minst 199 kr
+        {{coupon?.description}}
     </div>
     <div class="coupon-code">
         <div class="show-code-btn " *ngIf="!isShowingCode" (click)="showCouponCode()">
@@ -14,12 +14,20 @@
             <div class="censor">Klicka för att visa kod</div>
         </div>
         <div class="show-code-btn" *ngIf="isShowingCode">
-            <div class="code">RABATT2022</div>
+            <div class="code">{{coupon?.code}}</div>
         </div>
     </div>
-    <div class="copy-code-btn" *ngIf="isShowingCode">Kopiera kod & öppna butik</div>
-    <div class="expires">
+    <div class="copy-code-btn" *ngIf="isShowingCode" (click)="openInNewTab(coupon?.link)" [cdkCopyToClipboard]="coupon?.code || ''">Kopiera kod & öppna butik</div>
+    <div class="expires" *ngIf="(timeLeft$ | async) as t">
         <div class="expires-title">Utgår om</div>
-        <div class="expires-time">1 dag 3 minuter 24 sekunder</div>
+        <div class="expires-time" *ngIf="!isExpired">
+            {{t.daysToDday}} <span>dag<span *ngIf="t.daysToDday > 1">ar</span>,</span>
+            {{t.hoursToDday}} <span *ngIf="t.hoursToDday > 1">timmar</span><span *ngIf="t.hoursToDday < 2">timme</span>,
+            {{t.minutesToDday}} <span>minut<span *ngIf="t.minutesToDday > 1">er</span>,</span>
+            {{t.secondsToDday}} <span>sekund<span *ngIf="t.secondsToDday > 1">er</span></span>
+        </div>
+        <div class="expires-time" *ngIf="isExpired">
+            Rabattkoden har utgått
+        </div>
     </div>
 </div>

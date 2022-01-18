@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FeedComponent } from './feed/feed.component';
-import { StoreComponent } from './store/store.component';
 
 const routes: Routes = [
   {path: "", component: FeedComponent},
