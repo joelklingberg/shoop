@@ -14,7 +14,7 @@
             <div class="censor">Klicka för att visa kod</div>
         </div>
         <div class="show-code-btn" *ngIf="isShowingCode">
-            <div class="code">{{coupon?.code}}</div>
+            <div class="code" (click)="openInNewTab(coupon?.link)" [cdkCopyToClipboard]="coupon?.code || ''">{{coupon?.code}}</div>
         </div>
     </div>
     <div class="copy-code-btn" *ngIf="isShowingCode" (click)="openInNewTab(coupon?.link)" [cdkCopyToClipboard]="coupon?.code || ''">Kopiera kod & öppna butik</div>

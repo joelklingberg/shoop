@@ -1,6 +1,5 @@
 .coupon {
   background-color: #fff;
-  width: 100%;
   max-width: 500px;
   border-radius: 10px;
   overflow: hidden;
@@ -40,6 +39,8 @@
 
 .expires {
   padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
   text-align: center;
 }
 
@@ -80,6 +81,7 @@
   right: 0;
   bottom: 0;
   text-align: center;
+  cursor: pointer;
 }
 
 .censor {
