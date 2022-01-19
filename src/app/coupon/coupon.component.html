@@ -1,4 +1,4 @@
-<div class="coupon">
+<div class="coupon" *ngIf="!isNotYetAvailable">
     <div class="image-container">
         <img src="{{coupon?.logo}}" alt="Store Logo" />
     </div>

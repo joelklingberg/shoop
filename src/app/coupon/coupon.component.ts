@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { interval, Observable } from "rxjs";
 import { map, shareReplay } from "rxjs/operators";
-import { Coupon } from '../../data/models/Coupon.model';
-import { Countdown } from '../../data/models/Countdown';
+import { Coupon } from '../../data/models/coupon.model';
+import { Countdown } from '../../data/models/countdown.model';
 
 @Component({
   selector: 'app-coupon',
@@ -11,11 +11,9 @@ import { Countdown } from '../../data/models/Countdown';
 })
 export class CouponComponent implements OnInit {
 
-  constructor() {
-  }
-
   @Input() coupon: Coupon | null = null;
   isExpired: boolean = false;
+  isNotYetAvailable: boolean = false;
   isShowingCode: boolean = false;
 
   timeLeft$: Observable<Countdown> = interval(1000).pipe(
@@ -25,12 +23,15 @@ export class CouponComponent implements OnInit {
 
   ngOnInit() {
 
+    this.checkIfExpired();
+    this.checkIfNotYetAvailable();
+
     if(!this.coupon || !this.coupon?.endDate) {
       return;
     }
 
-
     const endDate = new Date(this.coupon.endDate);
+    endDate.setDate(endDate.getDate() + 1); // Adding one day to include the current day.
 
     this.timeLeft$ = interval(1000).pipe(
       map(x => this.updateCountdown(endDate)),
@@ -49,8 +50,6 @@ export class CouponComponent implements OnInit {
 
   updateCountdown(endDay: Date = new Date(2022, 0, 1)): Countdown {
     
-    if(this.isExpired) return { secondsToDday: 0, minutesToDday: 0, hoursToDday: 0, daysToDday: 0 };
-
     const dDay = endDay.valueOf();
   
     const milliSecondsInASecond = 1000;
@@ -63,7 +62,7 @@ export class CouponComponent implements OnInit {
     let daysToDday = Math.floor(
       timeDifference /
         (milliSecondsInASecond * minutesInAnHour * secondsInAMinute * hoursInADay)
-    ) + 1; // Also including the last day.
+    );
 
     daysToDday < 0 && (daysToDday = 0);
   
@@ -87,16 +86,37 @@ export class CouponComponent implements OnInit {
 
       secondsToDday < 0 && (secondsToDday = 0);
 
-    if(secondsToDday === 0 && minutesToDday === 0 && hoursToDday === 0 && daysToDday === 0) {
-      this.setIsExpired();
-    }
-
     return { secondsToDday, minutesToDday, hoursToDday, daysToDday };
   }
 
-  setIsExpired() {
-    this.isExpired = true;
-    console.warn("Expired coupon: ", this.coupon);
+  checkIfExpired() {
+    if(!this.coupon?.endDate) {
+      return;
+    }
+
+    const endDate = new Date(this.coupon?.endDate);
+    endDate.setDate(endDate.getDate() + 1) // Add one day to include current day.
+
+    const today = new Date();
+
+    if(today.getTime() > endDate.getTime()) {
+      this.isExpired = true;
+      console.warn("Expired coupon: ", this.coupon);
+    }
+    
+  }
+
+  checkIfNotYetAvailable() {
+    if(!this.coupon?.startDate) {
+      return;
+    }
+
+    const startDate = new Date(this.coupon?.startDate);
+    const today = new Date()
+
+    if(today.getTime() < startDate.getTime()) {
+      this.isNotYetAvailable = true;
+    }
   }
 
 }

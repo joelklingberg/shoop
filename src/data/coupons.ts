@@ -1,4 +1,4 @@
-import { Coupon } from "./models/Coupon.model";
+import { Coupon } from "./models/coupon.model";
 
 
 export const coupons: Coupon[] = [
