@@ -5,8 +5,6 @@ import { GtagModule } from 'angular-gtag';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { DragScrollModule } from 'ngx-drag-scroll';
-import { NgxMasonryModule } from 'ngx-masonry';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FeedComponent } from './feed/feed.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
@@ -23,8 +21,6 @@ import { CouponComponent } from './coupon/coupon.component';
     BrowserModule,
     AppRoutingModule,
     GtagModule.forRoot({ trackingId: 'UA-YOUR_TRACKING_ID', trackPageviews: true }),
-    DragScrollModule,
-    NgxMasonryModule,
     BrowserAnimationsModule,
     ClipboardModule
   ],
